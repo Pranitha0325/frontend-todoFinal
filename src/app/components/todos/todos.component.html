@@ -1,0 +1,76 @@
+
+  <div class="container">
+<div class="row">
+  <h1>Add Todo</h1>
+  <form>
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Description</label>
+      <input #todoInput type="text" class="form-control" id="exampleInputEmail1" >
+    </div>
+    
+    <button (click)="onSubmit(todoInput.value)" type="submit" style="margin-bottom: 10px;" class="btn btn-primary">Add</button>
+  </form>
+</div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <table class="table" >
+        <thead>
+          <tr>
+            
+            <th scope="col">Description</th>
+            <th scope="col">Created Date</th>
+            <th scope="col">Is Completed?</th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let todo of todos">
+          <tr>
+            
+            <th scope="row">{{ todo.description }}</th>
+            <td>{{ todo.createdDate.toISOString().split('T')[0] }}</td>
+            <!-- <td>{{ todo.isCompleted }}</td>
+             -->
+             <td>
+              <div style="display: flex; align-items: center;">
+                <p style="margin-right: 10px; margin-bottom: 0px;">{{todo.isCompleted}}</p>
+                <input type="checkbox" [checked]="todo.isCompleted" (change)="toggleCompleted(todo)">
+              
+              </div>
+            </td>
+          </tr>
+         
+        </tbody>
+      </table>
+    </div>
+  </div>
+ 
+
+
+
+
+
+<!-- 
+<div class="container">
+  <div class="row">
+    <h1>Add Todo</h1>
+    <form>
+      <div class="mb-3">
+        <label for="todo" class="form-label">Description</label>
+        <input type="text" class="form-control" id="todo" aria-describedby="description" #todoInput>
+      </div>
+      
+      <button type="button" class="btn btn-primary" (click)="onSubmit(todoInput.value)">Submit</button>
+    </form>
+  </div>
+  <div class="row">
+    <h1>My Todos</h1>
+        <ul>
+          <li *ngFor="let todo of todos">
+            <span>{{ todo.description }}</span>
+            <span>{{ todo.createdDate  }}</span>
+            <span>{{ todo.isCompleted }}</span>
+          </li>
+        </ul>
+  </div>
+</div> -->
