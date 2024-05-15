@@ -1,7 +1,7 @@
 export interface Todo {
-    // id: String,
-    description:string,
-    createdDate:Date,
+    id: String,
+    title:string,
+    createdAt:Date,
     isCompleted:boolean,
 
 }
